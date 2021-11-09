@@ -16,6 +16,10 @@
 <body>
 <div class="container">
 	<h1>Carrito de productos</h1>
+	
+	<p align="right">
+		<a href="Desconexion">Desconectar</a>
+	</p>
 	<br/>
 	<%--
 		recuperamos el carrito y si existe lo mostramos
