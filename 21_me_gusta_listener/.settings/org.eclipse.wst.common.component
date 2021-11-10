@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+        
+    <wb-module deploy-name="20_me_gusta">
+                
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+                
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+                
+        <property name="java-output-path" value="/20_me_gusta/build/classes"/>
+        <property name="context-root" value="21_me_gusta_listener"/>
+            
+    </wb-module>
+    
+</project-modules>
