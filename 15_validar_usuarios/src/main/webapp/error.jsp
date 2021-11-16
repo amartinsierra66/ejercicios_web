@@ -7,9 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%-- 
 	<%String user=request.getParameter("user");
 	String pwd=request.getParameter("pwd");%>
 	<h1>El usuario <%=user %>  con contraseña <%=pwd %> no es válido</h1>
+--%>
+<h1>El usuario ${param.user }  con contraseña ${param.pwd} no es válido</h1>
 	<br>
 	<a href="login.html">Volver</a>
 </body>
