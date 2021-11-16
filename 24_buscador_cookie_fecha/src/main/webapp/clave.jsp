@@ -23,8 +23,8 @@ if(!fecha.equals("")){
 	</p>
 <%}%>
 --%>
-<p align="right">
-		Fecha de la última búsqueda:<b>${cookie.fecha.value}</b>
+	<p align="right">
+		Fecha de la última búsqueda:<b>${!empty cookie.fecha?cookie.fecha.value:"Primera vez"}</b>
 	</p>
 
 
