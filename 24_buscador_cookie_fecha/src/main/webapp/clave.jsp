@@ -6,6 +6,7 @@
 <title>Insert title here</title>
 </head>
 <body bgcolor="yellow">
+<%-- 
 <%String fecha="";
 Cookie[] cookies=request.getCookies();
 if(cookies!=null){
@@ -21,6 +22,11 @@ if(!fecha.equals("")){
 		Fecha de la última búsqueda:<b><%=fecha %></b>
 	</p>
 <%}%>
+--%>
+<p align="right">
+		Fecha de la última búsqueda:<b>${cookie.fecha.value}</b>
+	</p>
+
 
 	<center>
 		<h1>Buscador</h1>

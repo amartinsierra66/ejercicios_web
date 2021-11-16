@@ -18,7 +18,9 @@
 	<%} %>
 	<p align="right">
 		<b><%=usuario %></b><br>
-		<b>Usuarios activos: <%=(Integer)application.getAttribute("activos") %></b>
+		<%-- <b>Usuarios activos: <%=(Integer)application.getAttribute("activos") %></b>--%>
+		<b>Usuarios activos: ${applicationScope.activos}</b>
+		
 	</p>
 	<%List<Pagina> items=(List<Pagina>)request.getAttribute("lista");
 	for(Pagina p:items){%>
