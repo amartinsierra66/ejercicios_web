@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.util.List,model.Contacto"%>
+    pageEncoding="ISO-8859-1" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,22 +26,20 @@
 	
 	
 	<br/>
-	<%--
-		recuperamos el carrito y si existe lo mostramos
-	 --%>
-	<%List<Contacto> contactos=(List<Contacto>)request.getAttribute("contactos");%>
+	
+	
 		<table class="table table-striped table-bordered">
 			<thead><tr><th></th><th>Nombre</th><th>Email</th><th>Edad</th></tr></thead>
 			<tbody>
-			<%for(Contacto con:contactos){ %>
+			<c:forEach var="con" items="${requestScope.contactos}">
 				<tr>
-					<td><a href="FrontController?op=doEliminar&idContacto=<%=con.getIdContacto()%>">Eliminar</a></td>
-					<td><%=con.getNombre() %></td>
-					<td><%=con.getEmail() %></td>
-					<td><%=con.getEdad() %></td>
+					<td><a href="FrontController?op=doEliminar&idContacto=${con.idContacto}">Eliminar</a></td>
+					<td>${con.nombre}</td>
+					<td>${con.email}</td>
+					<td>${con.edad}</td>
 				</tr>
 			
-			<%} %>
+			</c:forEach>
 			</tbody>
 		</table>
 			

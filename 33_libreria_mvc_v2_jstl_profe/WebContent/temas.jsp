@@ -6,7 +6,7 @@
 	language="java" contentType="text/html; charset=ISO-8859-1"
 	
 	pageEncoding="ISO-8859-1" %>
-	
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
 <html>
 <head>
 <title>seleccion</title>
@@ -16,9 +16,9 @@
 	
 
 	
-	<%List<Tema> temas=(List<Tema>)request.getAttribute("temas"); %>
+	
 	<p align="right">
-		Bienvenido:<%=((Cliente)session.getAttribute("cliente")).getUsuario() %>
+		Bienvenido:${sessionScope.cliente.usuario}
 	</p>
 	<center>
             <h1>Seleccione Tema</h1>
@@ -26,9 +26,9 @@
 		<form action="Controller?option=doLibros" method="post">
 			<select name="idTema">
 				<option value="0">-Todos-</option>
-				<%for(Tema t:temas){ %>
-					<option value="<%=t.getIdTema()%>"><%=t.getTema()%></option>				
-				<%} %>
+				<c:forEach var="t" items=${requestScope.temas}>
+					<option value="${t.idTema }">${t.tema}</option>				
+				</c:forEach>
 				
 			</select>
 			<br/><br/>

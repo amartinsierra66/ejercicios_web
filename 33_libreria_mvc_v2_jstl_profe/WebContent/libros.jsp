@@ -5,6 +5,7 @@
 	%>
 <%@page import="model.Libro,model.Cliente"%>
 <%@page import="java.util.List"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
 <html>
 <head>
 <title>libros</title>
@@ -12,24 +13,24 @@
 </head>
 <body>
 	<p align="right">
-		Bienvenido:<%=((Cliente)session.getAttribute("cliente")).getUsuario() %>
+		Bienvenido:${sessionScope.cliente.usuario}
 	</p>
 	<center>
 		
 		<br/><br/>
 		
-		 <h1>Lista de libros del tema: <%=request.getAttribute("tema") %></h1>   
-		 <%List<Libro> libros=(List<Libro>)request.getAttribute("libros"); %>
+		 <h1>Lista de libros del tema: ${requestScope.tema}</h1>   
+		 
 				<table border="1">
 				    <tr><th>Titulo</th><th>Autor</th><th>Precio</th></tr>		    	
-				    	<%for(Libro lb:libros){ %>
+				    	<c:forEach var="lb" items="${requestScope.libros}">
 				    		<tr>
-				    			<td><%=lb.getTitulo() %></td>
-								<td><%=lb.getAutor() %></td>
-								<td><%=lb.getPrecio() %></td>
+				    			<td>${lb.titulo}</td>
+								<td>${lb.autor}</td>
+								<td>${lb.precio}</td>
 								
 							</tr>		    	
-				    	<%} %>
+				    	</c:forEach>
 				</table>
 				
 				<br/><br/>
