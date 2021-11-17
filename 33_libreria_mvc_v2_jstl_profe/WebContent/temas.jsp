@@ -26,7 +26,7 @@
 		<form action="Controller?option=doLibros" method="post">
 			<select name="idTema">
 				<option value="0">-Todos-</option>
-				<c:forEach var="t" items=${requestScope.temas}>
+				<c:forEach var="t" items="${requestScope.temas}">
 					<option value="${t.idTema }">${t.tema}</option>				
 				</c:forEach>
 				

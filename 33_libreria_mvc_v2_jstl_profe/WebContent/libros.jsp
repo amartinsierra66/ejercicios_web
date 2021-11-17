@@ -27,8 +27,7 @@
 				    		<tr>
 				    			<td>${lb.titulo}</td>
 								<td>${lb.autor}</td>
-								<td>${lb.precio}</td>
-								
+								<td>${lb.precio}</td>								
 							</tr>		    	
 				    	</c:forEach>
 				</table>
