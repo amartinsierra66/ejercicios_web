@@ -18,6 +18,7 @@ public class VentasServiceImpl implements VentasService {
             String sql="insert into ventas (idCliente, idLibro, fecha) values(?,?,?)";
             //creamos consulta preparada:
             PreparedStatement ps=cn.prepareStatement(sql);
+            cn.setAutoCommit(false);
                //Sustituimos parametros por valores
             for(Libro libro:libros) {
             	ps.setInt(1, cliente.getIdCliente());
@@ -25,7 +26,7 @@ public class VentasServiceImpl implements VentasService {
             	ps.setTimestamp(3, java.sql.Timestamp.valueOf(LocalDateTime.now()));
             	ps.execute();
             }
-            
+            cn.commit();
         }  catch (SQLException ex) {
             ex.printStackTrace();
         }
