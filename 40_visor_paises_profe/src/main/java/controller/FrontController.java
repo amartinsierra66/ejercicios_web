@@ -19,7 +19,7 @@ public class FrontController extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String option=request.getParameter("option");
-		if(option==null) {
+		if(option==null) { //página de bienvenida
 			option="doContinentes";
 		}
 		String url="paises.jsp";

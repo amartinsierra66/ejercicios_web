@@ -11,9 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
 <body>
-	<p align="right">
-		Bienvenido:${sessionScope.cliente.usuario}
-	</p>
+	
 	<center>
 		
 		<br/><br/>
@@ -29,7 +27,8 @@
 			<br/><br/>
 			<input type="submit" value="Ver paises"/>
 		</form>	
-		 <h1>Habitantes de ${param.continente}: ${requestScope.habitantes}</h1>   
+		<c:if test="${!empty requestScope.paises}">
+		 	<h1>Habitantes de ${param.continente}: ${requestScope.habitantes}</h1>   
 		 
 				<table border="1">
 				    <tr><th>Pais</th><th>Capital</th><th>Habitantes</th></tr>		    	
@@ -44,6 +43,6 @@
 				</table>
 				
 				<br/><br/>
-				
+		</c:if>		
 </body>
 </html>
