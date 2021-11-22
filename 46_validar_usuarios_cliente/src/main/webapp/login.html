@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function validar(){
+		var usuario=document.getElementById("user").value;
+		var pass=document.getElementById("pwd").value;
+		if(usuario!=""&&pass.length>4){
+			return true;
+		}else{
+			alert("revisa los campos del formulario!");
+			return false;
+		}
+	}
+	function validarUser(){
+		var usuario=document.getElementById("user").value;
+		if(usuario==""){
+			document.getElementById("textoError").style.visibility="visible";
+			document.getElementById("user").focus(); //método para llevar el cursor a la caja
+		}else{
+			document.getElementById("textoError").style.visibility="hidden";
+		}
+	}
+
+</script>
+
+</head>
+<body>
+	<form action="Login" method="post" onsubmit="return validar();">
+		Usuario:<input type="text" name="user" id="user" onblur="validarUser();"><span id="textoError" style="visibility:hidden">El usuario no puede estar vacío</span><br><br>
+		Contraseña:<input type="password" name="pwd" id="pwd"><br><br>
+		<input type="submit" value="Enviar">
+	</form>
+</body>
+</html>
