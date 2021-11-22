@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	var ventas = [];
+	function guardar(){
+		var precio = document.getElementById("precio").value;
+		var unidades = document.getElementById("unidades").value;
+		if(!isNaN(precio) && !isNaN(unidades)){
+			ventas.push(precio*unidades);
+		}else{
+			alert("Algun dato no es un numero valido.")
+		}
+	}
+	
+	function mostrar(){
+		var total = 0;
+		if(ventas.length>0){
+			var respuesta = "<table border='1'>";
+			for(var v of ventas){
+				respuesta += "<tr><td>" + v + "</td></tr>";
+				total += v;
+			}
+			respuesta += "</table><br>El total es " + total;
+			document.getElementById("res").innerHTML = respuesta;
+			
+		}else{
+			alert("No se ha realizado ninguna venta");
+		}
+	}
+</script>
+</head>
+<body>
+<center>
+		Precio: <input type="text" id="precio"><br><br>
+		Unidades: <input type="text" id="unidades"><br><br>
+		<input type="button" value="Guardar" onclick="guardar();">
+		<br><br>
+		<input type="button" value="Mostrar ventas" onclick="mostrar();">
+		<div id="res">
+			
+		</div>
+	</center>
+</body>
+
+
+</html>
