@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+	var nums=[4,2,9,7];
+	//añadir nuevos elementos
+	nums.push(10);
+	//modifica contenido
+	nums[4]=25;
+	nums.splice(1,2);
+	for(var i=0;i<nums.length;i++){
+		alert(nums[i]);
+	}
+	//recorrido con for each
+	for(var n of nums){
+		alert(n);
+	}
+	
+
+</script>
+</body>
+</html>
