@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+	//objeto usando nomenclatura JSON
+	var curso={"nombre":"Java","duracion":120};
+	curso.duracion=300;
+	alert(curso.nombre+ "-"+curso.duracion);
+	
+	//otra alternativa
+	var persona=new Object();
+	persona.nombre="Pablo";
+	persona.edad=20;
+	alert(JSON.stringify(persona));
+
+</script>
+</body>
+</html>
