@@ -32,6 +32,10 @@
 		});
 	}
 	function procesarCarrito(data){
+		if(data.length==0){
+			$("#carrito").html("");
+			return;
+		}
 		var tabla="<h1>Carrito</h1><br>";
 		tabla+="<table border='1'><tr><th>Titulo</th><th>Autor</th><th>Precio</th><th></th></tr>";
 		//transforma texto JSON en objeto/array JSON
@@ -44,6 +48,7 @@
 		$("#carrito").html(tabla);
 	}
 	function procesarRespuesta(data){
+		
 		
 			var tabla="<h1>Libros del tema: "+$("option:selected", $("#idTema")).text()+"</h1><br>";
 			tabla+="<table border='1'><tr><th>Titulo</th><th>Autor</th><th>Precio</th><th></th></tr>";
