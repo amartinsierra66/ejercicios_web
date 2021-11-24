@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+	function mostrar(){
+		var texto=$("#texto").val();
+		/*
+		var parrafos=$("p");
+		for(var n of parrafos){
+			n.innerHTML="<b>"+texto+"</b>";
+		}*/
+		$("p").html("<b>"+texto+"</b>");
+	}
+
+</script>
+
+</head>
+<body>
+Texto:<input type="text" id="texto">
+<br>
+<p></p>
+<br>
+<p></p>
+<br>
+<p></p>
+<br>
+<input type="button" value="mostrar" onclick="mostrar();">
+</body>
+</html>
