@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+
+
+<script type="text/javascript">
+	
+	function lanzarPeticion(){
+		$.get("Buscador",{"texto":$("#texto").val()},function(data,status){
+			procesarRespuesta(data);
+		});		
+	}
+	
+	function procesarRespuesta(data){
+			var tabla="<table border='1'><tr><th>Titulo</th><th>ISBN</th><th>Temática</th></tr>";			
+			for(var lb of data){
+				tabla+="<tr><td>"+lb.titulo+"</td><td>"+lb.isbn+"</td><td>"+lb.tematica+"</td></tr>";
+			}
+			tabla+="</table>";
+			$("#resultado").html(tabla);
+	}
+
+</script>
+
+</head>
+<body>
+	<div class="container">
+		<form class="form-horizontal">
+			
+			<div class="form-group">
+				<label class="control-label col-sm-2">Introduce tema: </label>
+				<div class="col-sm-10">
+					<input type="text" id="texto" name="texto" class="form-control" style="width:30%"/>
+				</div>
+			</div>
+			<input type="button" onclick="lanzarPeticion();" class="btn btn-default" value="Buscar"/>
+		</form>
+		
+		<br><br>
+		<div id="resultado">
+			
+		</div>
+	</div>
+</body>
+</html>
