@@ -11,28 +11,29 @@
 <head>
 <title>seleccion</title>
 <meta http-equiv="Content-Type" content="text/html;  charset=ISO-8859-1" >
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-var request=new XMLHttpRequest();
+
 function lanzarPeticion(){		
-	//configurar peticion
-	request.open("GET","Controller?option=doLibros&idTema="+document.getElementById("idTema").value,true);
-	request.onreadystatechange=procesarRespuesta; //indica el NOMBRE de la funciï¿½n
-	//lanzamos petición
-	request.send(null);
+	
+	$.get("Controller",{"option":"doLibros","idTema":$("#idTema").val()},function(data,status){
+		procesarRespuesta(data);
+	});
+	
 }
 
-function procesarRespuesta(){
-	if(request.readyState==4){//la respuesta ha llegado
-		var tabla="<h1>Libros del tema: "+document.getElementById("idTema").selectedOptions[0].innerText+"</h1><br>"
+function procesarRespuesta(data){
+	
+		var tabla="<h1>Libros del tema: "+$("option:selected", $("#idTema")).text()+"</h1><br>"
 		tabla+="<table border='1'><tr><th>Titulo</th><th>Autor</th><th>Precio</th></tr>";
 		//transforma texto JSON en objeto/array JSON
-		var resp=JSON.parse(request.responseText);
-		for(var lb of resp){
+		
+		for(var lb of data){
 			tabla+="<tr><td>"+lb.titulo+"</td><td>"+lb.autor+"</td><td>"+lb.precio+"</td></tr>";
 		}
 		tabla+="</table>";
-		document.getElementById("libros").innerHTML=tabla;
-	}
+		$("#libros").html(tabla);
+	
 }
 
 
